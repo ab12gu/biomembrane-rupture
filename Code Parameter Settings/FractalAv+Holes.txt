@@ -1,0 +1,52 @@
+FractalAv & Holes Settings
+
+Please Replace Lines 42-90 in "main" file to get the output
+
+cmap = [...
+    0.00 0.00 0.00;  %Background   || -inf <x=< 2   (Black)
+    0.70 0.30 0.80;  %MLV          || 2    <x=< 3   (Light Red)
+    0.30 0.00 0.60;  %Bilayer      || 3    <x=< 4   (Brush Red)
+    0.30 0.00 0.60;  %Pinned BL    || 4    <x=< 5   (Red)
+    0.10 0.00 0.20]; %Fractured BL || 5    <x=< inf (Dark Red)
+colormap(cmap)  
+
+
+%NOTE: The plotted value is Array Value + 1
+
+%More Colors:
+    %0.95 0.00 0.34;     (Hot Pink)
+    %0.30 0.50 0.77;     (Turquoise)
+    %0.20 0.30 0.40;     (Blue)
+    
+%Legend for code:
+    %Background = 0 (or 1)
+    %MLV        = 1
+    %Bilayer    = 2
+    %Pinned BL  = 3
+    %Fracture   = 4
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Paramaterized Variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+maxRadius = 200; %Maximum radius for bilayer growth
+pinProb = 0.001; %Probability of expanded bilayer nodes turning into pins
+
+%%Nonlinear probability across BL (increase pins probability further
+    %%away from center
+    factor = 1;
+    minProb = pinProb*factor;
+    factor2 = 1/9;
+    radMin = maxRadius*factor2;
+
+clusProb = 0.1;         %Probability of new pin sites turning into cluster of pins
+clusThres = 0.67;        %Threshold Value for cluster expansion
+percReleased = 250;       %Percent Bond Strenght Gain after node breaks
+initialBondStr = 0.65;       %Pin Bond Strength
+stretch = 25/32;        %The amount of stretch each new cluster bond has || Lower bond strength
+MLVradius  = 6;         %MLV Radius
+minOutputRadius = 100;  %The minimum radius required for image to be graphed
+k = 0;                  %Percentage of how much other closer pins affect further pins
+
+%Cluster Tension Parameters:
+kc = 1; %Constant
+pc = 1; %Exponential
