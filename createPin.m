@@ -1,25 +1,25 @@
 function [pins] = ...
     createPin(xcen, ycen, i, j, pins, maxRadius, ...
-        expRadius, index, pinLength)
+        expRadius, index, amount_of_pins)
 %CREATEPIN Stores pin into an array
 
     %Find the angle of the pin
     [pineven, pinodd] = nodeAngle(i, j, xcen, ycen);
 
-    pins(1,pinLength) = index;
-    pins(2,pinLength) = expRadius;
-    pins(3,pinLength) = pineven; % -pi < angle <  pi
-    pins(4,pinLength) = 0;
-    pins(5,pinLength) = 2;
-    pins(6,pinLength) = pinodd;  % 0   < angle < 2pi
+    pins(1,amount_of_pins) = index;
+    pins(2,amount_of_pins) = expRadius;
+    pins(3,amount_of_pins) = pineven; % -pi < angle <  pi
+    pins(4,amount_of_pins) = 0;
+    pins(5,amount_of_pins) = 2;
+    pins(6,amount_of_pins) = pinodd;  % 0   < angle < 2pi
 
     %Calculate the added tension from pins closer to the center of
     %the spreaded Lipid Bilayer
 
-    [force] = addedTension(expRadius, pins, maxRadius, pinLength);
-    pins(7, pinLength) = force;
-    pins(8, pinLength) = 0;
-    pins(9, pinLength) = 0;
+    [force] = addedTension(expRadius, pins, maxRadius, amount_of_pins);
+    pins(7, amount_of_pins) = force;
+    pins(8, amount_of_pins) = 0;
+    pins(9, amount_of_pins) = 0;
                 
 end
 

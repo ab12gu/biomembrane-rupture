@@ -1,10 +1,8 @@
-function [CircCurr, MLVandBL, MLVnodes] = MLV(CircCurr, max_rows)
+function [MLVnodes] = MLV(new_circle, max_rows)
 %SOURCE This function stores the index values of the MLV
-
     %Keep source value at 1 (set color in colormap)
-    MLVandBL = CircCurr; %Store current expansion as the total output
     
-    [i, j] = find(CircCurr); %Find the coordinates of the MLV nodes
+    [i, j] = find(new_circle); %Find the coordinates of the MLV nodes
     MLVSize = length(i); %Store the number of MLV nodes
     MLVnodes = zeros(1,MLVSize); 
     
