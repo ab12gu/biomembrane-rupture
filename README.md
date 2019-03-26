@@ -2,7 +2,7 @@
 
 Hi,
 
-This is my summer 2017 research project covering the creation of a simulation to model cellular fracture. The project has produced a research paper that has been submitted to the journal Experimental Mechanics.
+This is my summer 2017 research project covering the creation of a simulation to model cellular fracture. The project has produced a research paper that has been submitted to the journal Nanoscale.
 
 For more information on the project, please check out the info folder on my github.
 
